@@ -34,7 +34,7 @@ class ProductCard extends Component {
                             <div className="col-md-3 mb-4">
                                 <div className="card">
                                     <Link to={`/detail/${product.id}`} state={{product: product}}>
-                                        <img src={product.image} className="card-img-top" alt={product.name}/>
+                                        <img src={product.image} className="card-img-top" alt={product.name} loading="lazy"/>
                                     </Link>
                                     <div className="card-body">
                                         <Link to={`/detail/${product.id}`} props={product.id}>

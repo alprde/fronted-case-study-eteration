@@ -3,6 +3,7 @@ import ProductCard from "../component/ProductCard";
 import ProductConsumer from "../context";
 import Cart from "../component/Cart";
 import Filter from "../component/Filter";
+import Paginate from "../component/Paginate";
 
 class Products extends Component {
     render() {
@@ -37,6 +38,9 @@ class Products extends Component {
                                     <div className="col-md-3">
                                         <Cart/>
                                     </div>
+                                </div>
+                                <div className="row">
+                                    <Paginate/>
                                 </div>
                             </div>
                         );

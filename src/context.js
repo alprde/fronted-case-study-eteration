@@ -19,6 +19,11 @@ const reducer = (state, action) => {
                 ...state,
                 cart: action.payload
             }
+        case "UPDATE_PRODUCT_LIST":
+            return {
+                ...state,
+                products: action.payload
+            }
         default:
             return state;
     }
