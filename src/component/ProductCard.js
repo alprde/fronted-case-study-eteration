@@ -13,10 +13,10 @@ function ProductCard(props) {
         const products = cart.products;
         cart.totalPrice += product.price
 
-        if(productKey in products){
+        if (productKey in products) {
             products[productKey].piece++
             products[productKey].totalPrice = products[productKey].price * products[productKey].piece
-        }else{
+        } else {
             product.piece = 1
             products[productKey] = product
             products[productKey].totalPrice = product.price
@@ -36,7 +36,9 @@ function ProductCard(props) {
                         <h5 className="card-title text-primary">{product.price} ₺</h5>
                         <p className="card-text">{product.name}</p>
                     </Link>
-                    <button type="button" className="btn btn-primary mt-1 w-100" onClick={addToCart.bind(this, product)}>Add to Cart</button>
+                    <button type="button" className="btn btn-primary mt-1 w-100"
+                            onClick={addToCart.bind(this, product)}>Add to Cart
+                    </button>
                 </div>
             </div>
         </div>
