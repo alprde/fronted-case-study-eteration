@@ -33,7 +33,7 @@ function ProductCard(props) {
                 </Link>
                 <div className="card-body">
                     <Link to={`/detail/${product.id}`} props={product.id}>
-                        <h5 className="card-title text-primary">{product.price} ₺</h5>
+                        <h5 className="card-title text-primary">{product.price.toLocaleString()} ₺</h5>
                         <p className="card-text">{product.name}</p>
                     </Link>
                     <button type="button" className="btn btn-primary mt-1 w-100"

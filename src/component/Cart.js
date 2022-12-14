@@ -57,7 +57,7 @@ function Cart(props) {
                                 <div className="d-flex justify-content-between">
                                     <div className="d-flex flex-column">
                                         <div>{product.name}</div>
-                                        <small className="text-primary">{product.price} ₺</small>
+                                        <small className="text-primary">{product.price.toLocaleString()} ₺</small>
                                     </div>
                                     <div className="btn-group">
                                         <button className="btn btn-light btn-md" onClick={decreaseCartPiece.bind(this, product, cart, dispatch)}>-</button>
@@ -79,7 +79,7 @@ function Cart(props) {
                         <div className="mb-2">
                             <ul className="list-group list-group-horizontal">
                                 <li className="list-group-item border-0 ps-0">Total Price: </li>
-                                <li className="list-group-item border-0 text-primary ps-0">{cart.totalPrice} ₺</li>
+                                <li className="list-group-item border-0 text-primary ps-0">{cart.totalPrice.toLocaleString()} ₺</li>
                             </ul>
                         </div>
                         <div className="btn-group">
