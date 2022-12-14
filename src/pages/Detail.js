@@ -42,7 +42,7 @@ function Detail(props) {
                                         <div className="col-lg-6">
                                             <h1>{product.name}</h1>
                                             <h3 className="text-primary">{product.price} ₺</h3>
-                                            <button className="btn btn-primary mt-5 mb-2" onClick={addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
+                                            <button className="btn btn-primary mt-5 mb-2 w-100" onClick={addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
                                             <p>{product.description}</p>
                                         </div>
                                     </div>

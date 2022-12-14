@@ -19,7 +19,7 @@ class Products extends Component {
                                     <div className="col-md-2">
                                         <Filter/>
                                     </div>
-                                    <div className="col-md-7">
+                                    <div className="col-md-7" style={{marginTop: '2.5rem'}}>
                                         <div className="row">
                                             {
                                                 products.map(product => {

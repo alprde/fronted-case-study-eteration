@@ -41,7 +41,7 @@ class ProductCard extends Component {
                                             <h5 className="card-title text-primary">{product.price} ₺</h5>
                                             <p className="card-text">{product.name}</p>
                                         </Link>
-                                        <button type="button" className="btn btn-primary mt-1" onClick={this.addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
+                                        <button type="button" className="btn btn-primary mt-1 w-100" onClick={this.addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
