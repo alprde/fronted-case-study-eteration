@@ -41,7 +41,7 @@ function Header(props) {
                         </form>
                         <ul className="navbar-nav mr-auto ml-auto">
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="src/component#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
+                                <a className="nav-link" aria-current="page" href="src/component#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice.toLocaleString()} ₺</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" aria-current="page" href="src/component#"><i className="fas fa-user-alt"></i> User</a>
