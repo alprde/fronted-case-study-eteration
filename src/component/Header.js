@@ -32,7 +32,7 @@ function Header(props) {
                                         <span className="navbar-toggler-icon"></span>
                                     </button>
                                     <div className="collapse navbar-collapse pt-sm-4 pt-lg-0 justify-content-between" id="navbarSupportedContent">
-                                        <form className="d-flex">
+                                        <form className="d-flex col-lg-4">
                                             <input
                                                 className="form-control me-2"
                                                 type="search"
