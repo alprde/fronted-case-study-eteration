@@ -19,13 +19,13 @@ function Header(props) {
         <ProductConsumer>
             {
                 value => {
-                    const {dispatch} = value;
+                    const {dispatch, cart} = value;
 
                     return (
                         <div>
-                            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                            <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                                 <div className="container">
-                                    <a className="navbar-brand" href="#">Eteration</a>
+                                    <a className="navbar-brand" style={{marginRight: '9rem', color: '#fff'}} href="#">Eteration</a>
                                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                             aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +40,13 @@ function Header(props) {
                                                 aria-label="Search"
                                                 onChange={search.bind(this, dispatch)}
                                             />
-                                            <button className="btn btn-outline-success" type="submit">Search</button>
                                         </form>
                                         <ul className="navbar-nav mr-auto ml-auto">
                                             <li className="nav-item">
-                                                <a className="nav-link active" aria-current="page" href="#"><i className="fas fa-shopping-cart"> 0 ₺</i></a>
+                                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-user-alt"> User</i></a>
+                                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-user-alt"></i> User</a>
                                             </li>
                                         </ul>
 
