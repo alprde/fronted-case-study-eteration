@@ -1,7 +1,7 @@
 # Yapılacaklar
 
 * Çalışma için Unit test yazılmalıdır.
-* Ekranın sol tarafında bulunan filtreler ile filtreleme işlemi yapılabilmelidir.
+* Ekranın sol tarafında bulunan filtreler ile filtreleme işlemi yapılabilmelidir <ins>(Sıralama ölçüleri yapıldı. Marka ve Model filtrelemede api üzerinde birden fazla değer ile veri çekilemediğinden sadece tesla markası ile veri çekim işlemi yapılmıştır. Model kısmı kodlanmamıştır.)</ins> .
 * ~~Çalışma içinde yapılacak save / load işlemlerinin localStorage’a kaydedilmesi gerekmektedir.~~
 * ~~Uygulama içerisinde en az 1 servis isteği yapılmalıdır.~~
 * ~~Çalışmanın görsel tasarımı için istenilen kütüphane kullanılabilir.~~
