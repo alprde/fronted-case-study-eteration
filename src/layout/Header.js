@@ -1,6 +1,7 @@
 import React from 'react';
 import {ProductContext} from "../context";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function Header(props) {
     const context = React.useContext(ProductContext)
@@ -22,7 +23,7 @@ function Header(props) {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <div className="container">
-                    <a className="navbar-brand" style={{marginRight: '9rem', color: '#fff'}} href="#">Eteration</a>
+                    <Link className="navbar-brand" style={{marginRight: '9rem', color: '#fff'}} to={'/'}>Eteration</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +41,10 @@ function Header(props) {
                         </form>
                         <ul className="navbar-nav mr-auto ml-auto">
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
+                                <a className="nav-link" aria-current="page" href="src/component#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-user-alt"></i> User</a>
+                                <a className="nav-link" aria-current="page" href="src/component#"><i className="fas fa-user-alt"></i> User</a>
                             </li>
                         </ul>
 
