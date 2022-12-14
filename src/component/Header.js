@@ -1,9 +1,12 @@
 import React from 'react';
-import ProductConsumer from "../context";
+import {ProductContext} from "../context";
 import axios from "axios";
 
 function Header(props) {
-    const search = async (dispatch, e) => {
+    const context = React.useContext(ProductContext)
+    const {dispatch, cart} = context;
+
+    const search = async (e) => {
         let response = '';
 
         if(e.target.value === ''){
@@ -16,49 +19,39 @@ function Header(props) {
     }
 
     return (
-        <ProductConsumer>
-            {
-                value => {
-                    const {dispatch, cart} = value;
+        <div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+                <div className="container">
+                    <a className="navbar-brand" style={{marginRight: '9rem', color: '#fff'}} href="#">Eteration</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <i className="fas fa-bars text-white fs-2"></i>
+                    </button>
+                    <div className="collapse navbar-collapse pt-sm-4 pt-lg-0 justify-content-between" id="navbarSupportedContent">
+                        <form className="d-flex col-lg-4">
+                            <input
+                                className="form-control me-2"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                                onChange={search}
+                            />
+                        </form>
+                        <ul className="navbar-nav mr-auto ml-auto">
+                            <li className="nav-item">
+                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-user-alt"></i> User</a>
+                            </li>
+                        </ul>
 
-                    return (
-                        <div>
-                            <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-                                <div className="container">
-                                    <a className="navbar-brand" style={{marginRight: '9rem', color: '#fff'}} href="#">Eteration</a>
-                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">
-                                        <i className="fas fa-bars text-white fs-2"></i>
-                                    </button>
-                                    <div className="collapse navbar-collapse pt-sm-4 pt-lg-0 justify-content-between" id="navbarSupportedContent">
-                                        <form className="d-flex col-lg-4">
-                                            <input
-                                                className="form-control me-2"
-                                                type="search"
-                                                placeholder="Search"
-                                                aria-label="Search"
-                                                onChange={search.bind(this, dispatch)}
-                                            />
-                                        </form>
-                                        <ul className="navbar-nav mr-auto ml-auto">
-                                            <li className="nav-item">
-                                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-shopping-cart"></i> {cart.totalPrice} ₺</a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" aria-current="page" href="#"><i className="fas fa-user-alt"></i> User</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    );
-                }
-            }
-        </ProductConsumer>
-    )
+                    </div>
+                </div>
+            </nav>
+        </div>
+    );
 }
 
 export default Header;

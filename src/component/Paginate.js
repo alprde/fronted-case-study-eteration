@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import ProductConsumer from "../context";
+import ProductConsumer, {ProductContext} from "../context";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 
 function Paginate(props) {
+    const context = React.useContext(ProductContext)
+    const {dispatch} = context;
     const [pageCount, setpageCount] = useState(0);
 
     let limit = 12;
@@ -33,7 +35,7 @@ function Paginate(props) {
         return response.data
     }
 
-    const handlePageClick = async (dispatch, data) => {
+    const handlePageClick = async (data) => {
         let currentPage = data.selected + 1;
 
         const products = await fetchProducts(currentPage);
@@ -42,38 +44,28 @@ function Paginate(props) {
     };
 
     return (
-        <ProductConsumer>
-            {
-                value => {
-                    const {products, dispatch} = value;
-
-                    return (
-                        <div>
-                            <ReactPaginate
-                                previousLabel={"previous"}
-                                nextLabel={"next"}
-                                breakLabel={"..."}
-                                pageCount={pageCount}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={3}
-                                onPageChange={handlePageClick.bind(this, dispatch)}
-                                containerClassName={"pagination justify-content-center"}
-                                pageClassName={"page-item"}
-                                pageLinkClassName={"page-link"}
-                                previousClassName={"page-item"}
-                                previousLinkClassName={"page-link"}
-                                nextClassName={"page-item"}
-                                nextLinkClassName={"page-link"}
-                                breakClassName={"page-item"}
-                                breakLinkClassName={"page-link"}
-                                activeClassName={"active"}
-                            />
-                        </div>
-                    )
-                }
-            }
-        </ProductConsumer>
-    );
+        <div>
+            <ReactPaginate
+                previousLabel={"previous"}
+                nextLabel={"next"}
+                breakLabel={"..."}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={3}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination justify-content-center"}
+                pageClassName={"page-item"}
+                pageLinkClassName={"page-link"}
+                previousClassName={"page-item"}
+                previousLinkClassName={"page-link"}
+                nextClassName={"page-item"}
+                nextLinkClassName={"page-link"}
+                breakClassName={"page-item"}
+                breakLinkClassName={"page-link"}
+                activeClassName={"active"}
+            />
+        </div>
+    )
 }
 
 export default Paginate;

@@ -1,13 +1,15 @@
 import React from 'react';
-import ProductConsumer from "../context";
+import {ProductContext} from "../context";
 import Cart from "../component/Cart";
 import {useLocation} from "react-router-dom";
 
 function Detail(props) {
+    const context = React.useContext(ProductContext)
+    const {cart, dispatch} = context;
     const location = useLocation();
     const {product} = location.state;
 
-    const addToCart = (product, cart, dispatch, e) => {
+    const addToCart = (product, e) => {
         product.price = parseInt(product.price)
         const productKey = `product${product.id}`;
         const products = cart.products;
@@ -26,37 +28,27 @@ function Detail(props) {
     }
 
     return (
-        <ProductConsumer>
-            {
-                value => {
-                    const {cart, dispatch} = value;
-
-                    return (
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-9 detail-container mt-4 p-3">
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <img src="http://placeimg.com/640/480/sports" alt=""/>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <h1>{product.name}</h1>
-                                            <h3 className="text-primary">{product.price} ₺</h3>
-                                            <button className="btn btn-primary mt-5 mb-2 w-100" onClick={addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
-                                            <p>{product.description}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3">
-                                    <Cart/>
-                                </div>
-                            </div>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-9 detail-container mt-4 p-3">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <img src="http://placeimg.com/640/480/sports" alt=""/>
                         </div>
-                    );
-                }
-            }
-        </ProductConsumer>
-    )
+                        <div className="col-lg-6">
+                            <h1>{product.name}</h1>
+                            <h3 className="text-primary">{product.price} ₺</h3>
+                            <button className="btn btn-primary mt-5 mb-2 w-100" onClick={addToCart.bind(this, product)}>Add to Cart</button>
+                            <p>{product.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <Cart/>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Detail;

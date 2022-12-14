@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {ProductContext} from "../context";
 import {Link} from "react-router-dom";
-import ProductConsumer from "../context";
 
-class ProductCard extends Component {
-    addToCart = (product, cart, dispatch, e) => {
+function ProductCard(props) {
+    const context = React.useContext(ProductContext)
+    const {product} = props;
+    const {dispatch, cart} = context;
+
+    const addToCart = (product, e) => {
         product.price = parseInt(product.price)
         const productKey = `product${product.id}`;
         const products = cart.products;
@@ -21,36 +25,22 @@ class ProductCard extends Component {
         dispatch({type: 'ADD_TO_CART', payload: cart})
     }
 
-    render() {
-        const {product} = this.props;
-
-        return (
-            <ProductConsumer>
-                {
-                    value => {
-                        const {dispatch, cart} = value;
-
-                        return (
-                            <div className="col-md-3 mb-4">
-                                <div className="card">
-                                    <Link to={`/detail/${product.id}`} state={{product: product}}>
-                                        <img src={product.image} className="card-img-top" alt={product.name} loading="lazy"/>
-                                    </Link>
-                                    <div className="card-body">
-                                        <Link to={`/detail/${product.id}`} props={product.id}>
-                                            <h5 className="card-title text-primary">{product.price} ₺</h5>
-                                            <p className="card-text">{product.name}</p>
-                                        </Link>
-                                        <button type="button" className="btn btn-primary mt-1 w-100" onClick={this.addToCart.bind(this, product, cart, dispatch)}>Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    }
-                }
-            </ProductConsumer>
-        )
-    }
+    return (
+        <div className="col-md-3 mb-4">
+            <div className="card">
+                <Link to={`/detail/${product.id}`} state={{product: product}}>
+                    <img src={product.image} className="card-img-top" alt={product.name} loading="lazy"/>
+                </Link>
+                <div className="card-body">
+                    <Link to={`/detail/${product.id}`} props={product.id}>
+                        <h5 className="card-title text-primary">{product.price} ₺</h5>
+                        <p className="card-text">{product.name}</p>
+                    </Link>
+                    <button type="button" className="btn btn-primary mt-1 w-100" onClick={addToCart.bind(this, product)}>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default ProductCard;
