@@ -29,7 +29,7 @@ function Header(props) {
                                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                             aria-expanded="false" aria-label="Toggle navigation">
-                                        <span className="navbar-toggler-icon"></span>
+                                        <i className="fas fa-bars text-white fs-2"></i>
                                     </button>
                                     <div className="collapse navbar-collapse pt-sm-4 pt-lg-0 justify-content-between" id="navbarSupportedContent">
                                         <form className="d-flex col-lg-4">
